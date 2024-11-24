@@ -6,6 +6,7 @@ export const { width, height } = Dimensions.get( 'window' );
 
 export const COLORS = {
   primary: '#022541',
+  primaryLight: '#092C47',
   secondary: '#82D549',
   white: '#ffff',
   black: '#020000',
@@ -13,7 +14,8 @@ export const COLORS = {
   gray1: "#D9D9D9",
   green: "#00C59A",
   gold: "#EFBD27",
-  red: "#FF0000"
+  red: "#FF0000",
+  transparent: "transparent"
 };
 
 const appTheme = { COLORS };
@@ -56,6 +58,25 @@ export const IMAGES = {
   Wallet: require( '../assets/images/wallet.png' ),
   user: require( '../assets/images/user.png' ),
   downloadIcon: require( '../assets/images/downloadIcon.png' ),
+  camera: require( '../assets/images/camera.png' ),
+  verifiedbadge: require( '../assets/images/verifiedbadge.png' ),
+  user2: require( '../assets/images/user2.png' ),
+  user3: require( '../assets/images/user3.png' ),
+  user4: require( '../assets/images/user4.png' ),
+  callMissed: require( '../assets/images/callMissed.png' ),
+  callRecevied: require( '../assets/images/callRecevied.png' ),
+  searchIcon: require( '../assets/images/searchIcon.png' ),
+  settingIcon: require( '../assets/images/settingIcon.png' ),
+  phoneIcon: require( '../assets/images/phoneIcon.png' ),
+  mailIcon: require( '../assets/images/mailIcon.png' ),
+  pencilIcon: require( '../assets/images/pencilIcon.png' ),
+  dummyDoc: require( '../assets/images/dummyDoc.png' ),
+  crossIcon: require( '../assets/images/crossIcon.png' ),
+  reviewCardBg: require( '../assets/images/reviewCardBg.png' ),
+  transIcon: require( '../assets/images/transIcon.png' ),
+  dollarIcon: require( '../assets/images/dollarIcon.png' ),
+  calendarIcon: require( '../assets/images/calendarIcon.png' ),
+  routingIcon: require( '../assets/images/routingIcon.png' ),
 
 
 
@@ -73,6 +94,11 @@ export const SCREENS = {
   Otp: "Otp",
   bottamTab: "BottamTab",
   NotaryHome: "NotaryHome",
+  NotaryAppointment: "NotaryAppointment",
+  NotaryProfile: "NotaryProfile",
+  NotaryNotifications: "NotaryNotifications",
+  NotaryWallet: "NotaryWallet",
+  NotarySettings: "NotarySettings",
 
 };
 

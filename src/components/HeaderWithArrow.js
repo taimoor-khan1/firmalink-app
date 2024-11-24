@@ -9,7 +9,7 @@ export default function HeaderWithArrow( props ) {
     const navigation = useNavigation()
     return (
         <View style={styles.Container}>
-            {hasBackArrow &&
+            {hasBackArrow ?
                 <TouchableOpacity
                     onPress={() => {
                         navigation.goBack()
@@ -20,20 +20,35 @@ export default function HeaderWithArrow( props ) {
                         type={IconType.AntDesign}
                         color={COLORS.white}
                     />
-                </TouchableOpacity>
+                </TouchableOpacity> :
+                <Icon
+                    name="arrowleft"
+                    type={IconType.AntDesign}
+                    color={COLORS.transparent}
+
+                />
             }
 
             <Text style={styles.text} >
                 {title}
 
             </Text>
+
+            <Icon
+                name="arrowleft"
+                type={IconType.AntDesign}
+                color={COLORS.transparent}
+            />
+
         </View>
     )
 }
 
 const styles = StyleSheet.create( {
     Container: {
-        marginTop: SIZES.twenty
+        marginVertical: SIZES.twenty,
+        flexDirection: "row",
+        justifyContent: "space-between"
     },
     text: {
         color: COLORS.white,

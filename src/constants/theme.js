@@ -77,6 +77,14 @@ export const IMAGES = {
   dollarIcon: require( '../assets/images/dollarIcon.png' ),
   calendarIcon: require( '../assets/images/calendarIcon.png' ),
   routingIcon: require( '../assets/images/routingIcon.png' ),
+  TabUnSelectedAppointmentIcon: require( '../assets/images/TabUnSelectedAppointmentIcon.png' ),
+  TabSelectedAppointmentIcon: require( '../assets/images/TabSelectedAppointmentIcon.png' ),
+  TabUnSelectedHome: require( '../assets/images/TabUnSelectedHome.png' ),
+  TabSelectedHome: require( '../assets/images/TabSelectedHome.png' ),
+  TabUnSelectedProfile: require( '../assets/images/TabUnSelectedProfile.png' ),
+  TabSelectedProfile: require( '../assets/images/TabSelectedProfile.png' ),
+  TabUnSelectedNotification: require( '../assets/images/TabUnSelectedNotification.png' ),
+  TabSelectedNotification: require( '../assets/images/TabSelectedNotification.png' ),
 
 
 
@@ -99,6 +107,9 @@ export const SCREENS = {
   NotaryNotifications: "NotaryNotifications",
   NotaryWallet: "NotaryWallet",
   NotarySettings: "NotarySettings",
+  PriceSettings: "PriceSettings",
+  CalenderSettings: "CalenderSettings",
+  TravelSettings: "TravelSettings"
 
 };
 

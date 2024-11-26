@@ -1,11 +1,12 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { COLORS, IMAGES, SIZES, width } from '../constants'
+import { COLORS, IMAGES, SCREENS, SIZES, width } from '../constants'
 import LinearGradient from 'react-native-linear-gradient'
 import StarRating from 'react-native-star-rating-widget';
+import { useNavigation } from '@react-navigation/native';
 
 export default function ProfileCard() {
-
+    const navigation = useNavigation()
     return (
 
 
@@ -21,7 +22,11 @@ export default function ProfileCard() {
                     <Text style={{ color: COLORS.white, fontSize: SIZES.twenty }}>
                         Martin Canelo
                     </Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => {
+                            navigation.navigate( SCREENS.NotarySettings )
+                        }}
+                    >
                         <Image source={IMAGES.settingIcon} />
                     </TouchableOpacity>
                 </View>

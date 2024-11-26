@@ -20,96 +20,99 @@ const tabs = [
     id: 0,
     name: "Home",
     component: NotaryHome,
-    // select: IMAGES.selectOrder,
-    // unSelect: IMAGES.unSelectOrder
+    select: IMAGES.TabSelectedHome,
+    unSelect: IMAGES.TabUnSelectedHome
   },
   {
     id: 1,
     name: "Appointment",
     component: NotaryAppointment,
-    // select: IMAGES.selectLink,
-    // unSelect: IMAGES.unSelectLink
+    select: IMAGES.TabSelectedAppointmentIcon,
+    unSelect: IMAGES.TabUnSelectedAppointmentIcon
   },
   {
     id: 2,
     name: "Profile",
     component: NotaryProfile,
-    // select: IMAGES.selectShop,
-    // unSelect: IMAGES.unSelectShop
+    select: IMAGES.TabSelectedProfile,
+    unSelect: IMAGES.TabUnSelectedProfile
   },
   {
     id: 3,
     name: "Notification",
     component: NotaryNotification,
-    // select: IMAGES.selectWh,
-    // unSelect: IMAGES.unSelectWh
+    select: IMAGES.TabSelectedNotification,
+    unSelect: IMAGES.TabUnSelectedNotification
   },
 
 
 ];
 
 const Tab = createBottomTabNavigator();
-
 export default function BottomTabNavigation() {
   return (
-    <Tab.Navigator
-
-      screenOptions={{
-        lazy: false,
-        headerShown: false,
-        tabBarShowLabel: false,
-        tabBarActiveTintColor: COLORS.white,
-        tabBarInactiveTintColor: COLORS.halfWhite,
-        tabBarStyle: styles.tabBarStyle,
-        tabBarBackground: () => (
-          <View
-            style={[StyleSheet.absoluteFill]}
+    <View style={styles.wrapper}>
+      <Tab.Navigator
+        screenOptions={{
+          lazy: false,
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarStyle: styles.tabBarStyle,
+        }}
+      >
+        {tabs.map( ( item, index ) => (
+          <Tab.Screen
+            key={index}
+            name={item.name}
+            component={item.component}
+            options={{
+              tabBarIcon: ( { focused } ) => (
+                <View style={styles.iconContainer}>
+                  <Image source={focused ? item.select : item.unSelect} />
+                </View>
+              ),
+            }}
           />
-        ),
-      }}
-    >
-
-
-      {tabs.map( ( item, index ) => (
-        <Tab.Screen
-          key={index}
-          name={item.name}
-          component={item.component}
-          options={( { } ) => ( {
-            tabBarIcon: ( { focused, color } ) => (
-              <View
-                style={[
-                  { alignItems: "center" }
-                ]}
-              >
-                <Image
-                  source={focused ? item.select : item.unSelect}
-                />
-                <Text style={[FONTS.semiBoldFont18, { color: focused ? COLORS.primary : COLORS.black + 99 }]}>
-                  {item.name}</Text>
-              </View>
-            ),
-          } )}
-
-        />
-      ) )}
-    </Tab.Navigator>
+        ) )}
+      </Tab.Navigator>
+    </View>
   );
 }
-
 const styles = StyleSheet.create( {
-  tabBarStyle: {
-    borderTopWidth: 0,
-    height: SIZES.fifty * 1.1,
-    backgroundColor: COLORS.white,
-    paddingTop: Platform.OS === 'android' ? 0 : SIZES.fifteen,
+  wrapper: {
+    flex: 1,
+    backgroundColor: COLORS.primary, // Dark purple
+    overflow: 'hidden', // Ensure rounded corners are respected
   },
-  centertab: {
-    height: SIZES.twentyFive * 1.8,
-    width: SIZES.twentyFive * 1.8,
-    borderWidth: 1,
-    borderRadius: SIZES.fifty,
-    alignItems: 'center',
-    justifyContent: 'center',
+
+  tabBarStyle: {
+    borderTopRightRadius: SIZES.twentyFive,
+    borderTopLeftRadius: SIZES.twentyFive,
+    height: SIZES.fifty * 1.5,
+    borderColor: COLORS.black,
+    backgroundColor: COLORS.primary, // Matches dark purple
+
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
+
+    elevation: 24,
+
+    paddingBottom: SIZES.ten,
+    paddingTop: SIZES.ten,
+
+
+    overflow: 'hidden', // Prevent white background showing
+  },
+
+  iconContainer: {
+    marginTop: SIZES.twentyFive,
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1, // Center content
   },
 } );

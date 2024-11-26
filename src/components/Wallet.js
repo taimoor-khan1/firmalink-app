@@ -1,11 +1,17 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { IMAGES } from '../constants'
+import { IMAGES, SCREENS } from '../constants'
+import { useNavigation } from '@react-navigation/native'
 
 export default function Wallet() {
+    const navigation = useNavigation()
 
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity
+            onPress={() => {
+                navigation.navigate( SCREENS.NotaryWallet )
+            }}
+            style={styles.container}>
             <Image source={IMAGES.Wallet} />
         </TouchableOpacity>
     )

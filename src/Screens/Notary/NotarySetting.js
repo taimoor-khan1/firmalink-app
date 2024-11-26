@@ -1,34 +1,44 @@
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native'
+import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { COLORS, IMAGES, SIZES, STYLES } from '../../constants'
+import { COLORS, IMAGES, SCREENS, SIZES, STYLES } from '../../constants'
 import HeaderWithArrow from '../../components/HeaderWithArrow'
 import CustomButton from '../../components/CustomButton'
 
-export default function NotarySetting() {
+export default function NotarySetting( props ) {
+    const { navigation } = props
     const Data = [
         {
             id: 1,
             title: "Pricing Setting",
             des: "Set your Price while its for long terms services or short term its up to you!",
-            icon: IMAGES.dollarIcon
+            icon: IMAGES.dollarIcon,
+            screen: SCREENS.PriceSettings
         },
         {
             id: 2,
             title: "Calendar Setting",
             des: "Set your Availability for clients so they  books appointment according to your schedule",
-            icon: IMAGES.calendarIcon
+            icon: IMAGES.calendarIcon,
+            screen: SCREENS.CalenderSettings
+
         },
         {
             id: 3,
             title: "Travel Limit Setting",
             des: "Set your limit for travel to provide your services.",
-            icon: IMAGES.routingIcon
+            icon: IMAGES.routingIcon,
+            screen: SCREENS.TravelSettings
+
         },
     ]
 
     const Options = ( { item } ) => {
         return (
-            <View style={styles.container}>
+            <TouchableOpacity
+                onPress={() => {
+                    navigation.navigate( item?.screen )
+                }}
+                style={styles.container}>
                 <Image source={item?.icon} />
                 <View style={styles.innerContainer}>
                     <Text style={styles.title}>
@@ -38,7 +48,7 @@ export default function NotarySetting() {
                         {item?.des}
                     </Text>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
     return (

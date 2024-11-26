@@ -18,6 +18,7 @@ import NotaryProfile from '../Screens/Notary/NotaryProfile';
 import NotaryNotification from '../Screens/Notary/NotaryNotification';
 import NotaryWallet from '../Screens/Notary/NotaryWallet';
 import NotarySetting from '../Screens/Notary/NotarySetting';
+import PriceSetting from '../Screens/Notary/PriceSetting';
 
 
 const Stack = createNativeStackNavigator();
@@ -62,11 +63,10 @@ export default function ( props ) {
           <Stack.Screen name={SCREENS.signUp} component={Register} />
           <Stack.Screen name={SCREENS.forget} component={ForgetPassword} />
           <Stack.Screen name={SCREENS.bottamTab} component={BottomTabNavigation} />
-          <Stack.Screen name={SCREENS.NotaryHome} component={NotaryHome} />
-          <Stack.Screen name={SCREENS.NotaryProfile} component={NotaryProfile} />
-          <Stack.Screen name={SCREENS.NotaryNotifications} component={NotaryNotification} />
+
           <Stack.Screen name={SCREENS.NotaryWallet} component={NotaryWallet} />
           <Stack.Screen name={SCREENS.NotarySettings} component={NotarySetting} />
+          <Stack.Screen name={SCREENS.PriceSettings} component={PriceSetting} />
 
 
 

@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { COLORS, FONTS, height, IMAGES, SCREENS, SIZES, STYLES, width } from '../constants'
-import Row from '../components/Row'
+import Row from './Row'
 import { useNavigation } from '@react-navigation/core'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
@@ -11,7 +11,7 @@ import { CONSTANTS } from '../constants'
 
 export default function ProductCard( props ) {
     const { item, index, } = props
-  
+
     const navigation = useNavigation()
     const [like, setLike] = useState( item?.is_favorited );
     const [productId, setProductId] = useState( null )

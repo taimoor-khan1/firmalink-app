@@ -6,18 +6,19 @@ import EditText from '../../components/EditText'
 import CustomButton from '../../components/CustomButton'
 import GradientText from '../../components/GradientText'
 import { Icon, IconType } from '../../components'
+import CustomAuthHeader from '../../components/CustomAuthHeader'
 
 export default function ForgetPassword() {
-  const [email, setEmail] = useState( "" )
-  const [name, setName] = useState( "" )
-  const [password, setPassword] = useState( "" )
-  const [confirmPassword, setConfirmPassword] = useState( "" )
+  const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
   return (
     <View style={STYLES.container}>
       <View style={{ flex: 1 }}>
 
 
-        <CustomHeader title={"Forget Password "} />
+        <CustomAuthHeader title={"Forget Password "} />
 
         <EditText
           value={password}
@@ -41,7 +42,7 @@ export default function ForgetPassword() {
   )
 }
 
-const styles = StyleSheet.create( {
+const styles = StyleSheet.create({
   row: {
     marginTop: SIZES.ten,
     flexDirection: "row",
@@ -49,4 +50,4 @@ const styles = StyleSheet.create( {
     alignItems: "center",
     marginBottom: SIZES.fifty
   }
-} )
+})

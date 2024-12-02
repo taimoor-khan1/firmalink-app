@@ -5,7 +5,7 @@ import { COLORS, FONTS, IMAGES, SCREENS, SIZES, width } from "../constants";
 import Icon, { IconType } from "./Icons";
 import MyTouchableOpacity from "./MyTouchableOpacity";
 
-export default function CustomHeader( props ) {
+export default function CustomHeader(props) {
   const {
     iconColor,
     title,
@@ -29,8 +29,8 @@ export default function CustomHeader( props ) {
       >
 
         <Image
-          source={IMAGES.logo}
-          style={styles.logo}
+          source={IMAGES.user4}
+          style={styles.img}
           resizeMode="contain"
         />
 
@@ -51,27 +51,47 @@ export default function CustomHeader( props ) {
         </Text>
 
       )}
+      <MyTouchableOpacity
+        activeOpacity={0.85}
+        style={styles.logo}
+        onPress={() => navigation.navigate(SCREENS.NotaryNotifications)}
+      >
 
+        <Image
+          source={IMAGES.notification}
+
+          resizeMode="contain"
+        />
+
+      </MyTouchableOpacity>
 
     </View>
   );
 }
 
-const styles = StyleSheet.create( {
+const styles = StyleSheet.create({
   container: {
     marginVertical: SIZES.fifteen,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
+  },
+  img: {
+    width: width * .12,
+    height: width * .12,
+
   },
   logo: {
-    width: width * .15,
-    height: width * .15,
-
+    borderColor: COLORS.secondary + 50,
+    borderWidth: 1,
+    borderRadius: SIZES.fifteen,
+    padding: SIZES.five
   },
-
   titleStyle: {
-    fontSize: SIZES.twentyFive,
+    fontSize: SIZES.twenty,
     fontWeight: "500",
     color: COLORS.white,
   },
 
 
-} );
+});

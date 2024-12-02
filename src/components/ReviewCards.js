@@ -58,7 +58,7 @@ export default function ReviewCards() {
 
         <FlatList
             horizontal
-            showsHorizontalScrollIndicator={true}
+            showsHorizontalScrollIndicator={false}
             renderItem={RenderItem}
             data={[1, 2, 3, 4]}
 
@@ -67,7 +67,7 @@ export default function ReviewCards() {
     )
 }
 
-const styles = StyleSheet.create( {
+const styles = StyleSheet.create({
     container: {
         paddingVertical: SIZES.twenty,
         paddingHorizontal: SIZES.fifteen,
@@ -87,4 +87,4 @@ const styles = StyleSheet.create( {
         height: width * .13,
         resizeMode: "cover"
     }
-} )
+})

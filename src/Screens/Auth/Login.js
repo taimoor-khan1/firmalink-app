@@ -1,17 +1,20 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { COLORS, SIZES, STYLES } from '../../constants'
+import { COLORS, SCREENS, SIZES, STYLES } from '../../constants'
 import CustomHeader from '../../components/CustomHeader'
 import EditText from '../../components/EditText'
 import CustomButton from '../../components/CustomButton'
 import GradientText from '../../components/GradientText'
 import { Icon, IconType } from '../../components'
+import CustomAuthHeader from '../../components/CustomAuthHeader'
 
-export default function Login() {
+export default function Login( props ) {
+  const { navigation } = props
   const [email, setEmail] = useState( "" )
+  const [password, setPassword] = useState( "" )
   return (
     <View style={STYLES.container}>
-      <CustomHeader title={"Login "} />
+      <CustomAuthHeader title={"Login "} />
 
       <EditText
         value={email}
@@ -19,8 +22,8 @@ export default function Login() {
         placeHolderValue={"Email Address"}
       />
       <EditText
-        value={email}
-        onChangeText={setEmail}
+        value={password}
+        onChangeText={setPassword}
         password
         placeHolderValue={"Password"}
       />
@@ -36,7 +39,7 @@ export default function Login() {
             Remember Me
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate( SCREENS.forget )}>
           <Text style={{ color: COLORS.secondary, textDecorationLine: "underline" }}>
             Forget Password
           </Text>
@@ -50,7 +53,10 @@ export default function Login() {
       <Text style={{ fontSize: SIZES.fifteen, color: COLORS.white, textAlign: "center", marginTop: SIZES.fifty }}>
 
         Don’t have an account? {" "}
-        <Text style={{ color: COLORS.secondary }}>
+
+        <Text
+          onPress={() => navigation.navigate( SCREENS.signUp )}
+          style={{ color: COLORS.secondary }}>
           Sign Up
         </Text>
       </Text>

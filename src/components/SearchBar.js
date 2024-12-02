@@ -2,18 +2,19 @@ import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 import { COLORS, IMAGES, SIZES } from '../constants'
 
-export default function SearchBar( props ) {
+export default function SearchBar(props) {
     return (
         <View style={styles.container}>
             <Image source={IMAGES.searchIcon} />
             <TextInput style={styles.textInput}
-                placeholderTextColor=''
+
+                placeholderTextColor={COLORS.gray1}
                 {...props} />
         </View>
     )
 }
 
-const styles = StyleSheet.create( {
+const styles = StyleSheet.create({
     container: {
         backgroundColor: COLORS.primaryLight,
         flexDirection: "row",
@@ -27,4 +28,4 @@ const styles = StyleSheet.create( {
         paddingHorizontal: SIZES.ten
 
     }
-} )
+})

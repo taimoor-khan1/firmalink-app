@@ -5,20 +5,29 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CONSTANTS, SCREENS } from '../constants';
 
 import Loader from '../components/Loader';
-import { useDispatch, useSelector } from 'react-redux';
+
 import welcome from '../Screens/Auth/welcome';
 import Login from '../Screens/Auth/Login';
 import UserSelection from '../Screens/Auth/UserSelection';
 import Register from '../Screens/Auth/Register';
 import ForgetPassword from '../Screens/Auth/ForgetPassword';
 import BottomTabNavigation from './BottomBar/BottomTabNavigation';
-import NotaryHome from '../Screens/Notary/NotaryHome';
-import NotaryAppointment from '../Screens/Notary/NotaryAppointment';
-import NotaryProfile from '../Screens/Notary/NotaryProfile';
-import NotaryNotification from '../Screens/Notary/NotaryNotification';
+
 import NotaryWallet from '../Screens/Notary/NotaryWallet';
 import NotarySetting from '../Screens/Notary/NotarySetting';
 import PriceSetting from '../Screens/Notary/PriceSetting';
+import ClientHome from '../Screens/Client/ClientHome';
+import ClientServices from '../Screens/Client/ClientServices';
+import ClientAppointment from '../Screens/Client/ClientAppointment';
+import ClientProfile from '../Screens/Client/ClientProfile';
+import NotaryDetail from '../Screens/Client/NotaryDetail';
+import AppointmentDetail from '../Screens/AppointmentDetail';
+import BottomTabClientNavigation from './BottomBar/BottomTabClientNavigation';
+import NotaryNotification from '../Screens/Notary/NotaryNotification';
+import AppointmentDetailSheet from '../Screens/AppointmentDetailSheet';
+import SignUpSkill from '../Screens/Auth/SignUpSkill';
+import TravelSettings from '../Screens/Notary/TravelSettings';
+import CalenderSettings from '../Screens/Notary/CalenderSettings';
 
 
 const Stack = createNativeStackNavigator();
@@ -35,19 +44,6 @@ export default function ( props ) {
 
 
 
-
-  useEffect( () => {
-
-  }, [] );
-
-  const Home = () => {
-    return (
-      <View style={{ flex: 1 }}>
-
-      </View>
-    )
-  }
-
   return (
     <>
 
@@ -55,18 +51,30 @@ export default function ( props ) {
 
         <Stack.Navigator
           screenOptions={screenOptions}
-          initialRouteName={SCREENS.bottamTab}
+          initialRouteName={SCREENS.welcomeScreen}
         >
           <Stack.Screen name={SCREENS.welcomeScreen} component={welcome} />
           <Stack.Screen name={SCREENS.UserSelection} component={UserSelection} />
           <Stack.Screen name={SCREENS.login} component={Login} />
           <Stack.Screen name={SCREENS.signUp} component={Register} />
+          <Stack.Screen name={SCREENS.SignUpSkill} component={SignUpSkill} />
           <Stack.Screen name={SCREENS.forget} component={ForgetPassword} />
           <Stack.Screen name={SCREENS.bottamTab} component={BottomTabNavigation} />
+          <Stack.Screen name={SCREENS.bottamTabCLient} component={BottomTabClientNavigation} />
 
           <Stack.Screen name={SCREENS.NotaryWallet} component={NotaryWallet} />
           <Stack.Screen name={SCREENS.NotarySettings} component={NotarySetting} />
           <Stack.Screen name={SCREENS.PriceSettings} component={PriceSetting} />
+          <Stack.Screen name={SCREENS.ClientHome} component={ClientHome} />
+          <Stack.Screen name={SCREENS.ClientService} component={ClientServices} />
+          <Stack.Screen name={SCREENS.ClientAppointment} component={ClientAppointment} />
+          <Stack.Screen name={SCREENS.ClientProfile} component={ClientProfile} />
+          <Stack.Screen name={SCREENS.AppointmentDetails} component={AppointmentDetail} />
+          <Stack.Screen name={SCREENS.NotaryNotifications} component={NotaryNotification} />
+          <Stack.Screen name={SCREENS.NotaryDetail} component={NotaryDetail} />
+          <Stack.Screen name={SCREENS.AppointmentDetailSheet} component={AppointmentDetailSheet} />
+          <Stack.Screen name={SCREENS.TravelSettings} component={TravelSettings} />
+          <Stack.Screen name={SCREENS.CalenderSettings} component={CalenderSettings} />
 
 
 

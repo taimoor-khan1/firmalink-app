@@ -1,69 +1,112 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import Icon, { IconType } from './Icons';
 import { COLORS } from '../constants';
+import GradientText from './GradientText';
 
 
-const data = [
-    { label: 'Item 1', value: '1' },
-    { label: 'Item 2', value: '2' },
-    { label: 'Item 3', value: '3' },
-    { label: 'Item 4', value: '4' },
-    { label: 'Item 5', value: '5' },
-    { label: 'Item 6', value: '6' },
-    { label: 'Item 7', value: '7' },
-    { label: 'Item 8', value: '8' },
-];
 
-const DropdownComponent = () => {
-    const [value, setValue] = useState( null );
+
+const DropdownComponent = ( props ) => {
+    const { label, style, data, dollar, onPressDelete, isDeleteRow, value, onChange } = props
+
     const [isFocus, setIsFocus] = useState( false );
 
     const renderLabel = () => {
         if ( value || isFocus ) {
             return (
-                <Text style={[styles.label, isFocus && { color: 'blue' }]}>
-                    Dropdown label
-                </Text>
+                <GradientText style={[styles.label, isFocus && { color: 'blue' }]}>
+                    {label}
+                </GradientText>
+                // <Text style={[styles.label, isFocus && { color: 'blue' }]}>
+
+                // </Text>
             );
         }
         return null;
     };
 
     return (
-        <View style={styles.container}>
-            {/* {renderLabel()} */}
+        <View style={[styles.container, style]}>
+            {renderLabel()}
             <Dropdown
-                style={[styles.dropdown, isFocus && { borderColor: 'blue' }]}
+                style={[styles.dropdown]}
                 placeholderStyle={styles.placeholderStyle}
                 selectedTextStyle={styles.selectedTextStyle}
                 inputSearchStyle={styles.inputSearchStyle}
                 iconStyle={styles.iconStyle}
+                containerStyle={styles.dropdownContainer}
                 data={data}
-                search
+                // search
+                itemTextStyle={{ color: COLORS.white, }}
+
                 maxHeight={300}
                 labelField="label"
                 valueField="value"
-                placeholder={!isFocus ? 'Select item' : '...'}
+                placeholder={!isFocus ? label : '...'}
                 searchPlaceholder="Search..."
                 value={value}
                 onFocus={() => setIsFocus( true )}
                 onBlur={() => setIsFocus( false )}
-                onChange={item => {
-                    setValue( item.value );
-                    setIsFocus( false );
-                }}
-            // renderLeftIcon={() => (
-            //     <Icon
-            //         type={IconType.AntDesign}
-            //         style={styles.icon}
-            //         color={isFocus ? 'blue' : 'black'}
-            //         name="Safety"
-            //         size={20}
-            //     />
-            // )}
+                onChange={
+                    onChange
+                    // setIsFocus( false );
+                }
+                renderItem={( item ) => (
+                    <View
+                        style={[
+                            styles.dropdownItem,
+                            value === item.value && styles.selectedTextStyle, // Apply selected style
+                        ]}
+                    >
+                        <Text
+                            style={[
+                                styles.itemText,
+                                value === item.value && styles.selectedItemText, // Change text style if selected
+                            ]}
+                        >
+                            {item.label}
+                        </Text>
+                    </View>
+                )}
+
+                renderRightIcon={() => (
+                    dollar && <Icon
+                        type={IconType.FontAwesome}
+                        style={styles.icon}
+                        color={COLORS.white}
+                        name="dollar"
+                        size={20}
+                    />
+
+                )}
             />
+
+            <View style={{ flexDirection: "row", justifyContent: "space-between", }}>
+                {dollar &&
+
+                    <Text style={{ color: COLORS.gray, fontSize: 11 }}>
+                        /Signature
+                    </Text>
+                }
+
+                {
+                    isDeleteRow &&
+                    <TouchableOpacity style={{}} onPress={onPressDelete}>
+                        <Text style={{ color: COLORS.red, fontSize: 11, textDecorationLine: "underline", }}>
+                            Delete Row
+                        </Text>
+                    </TouchableOpacity>
+
+                }
+
+
+            </View>
+
+
+
+
         </View>
     );
 };
@@ -71,42 +114,52 @@ const DropdownComponent = () => {
 export default DropdownComponent;
 
 const styles = StyleSheet.create( {
+    label: {
+        fontSize: 10
+    },
     container: {
-        // backgroundColor: 'white',
-        width: "100%",
+        // width: "50%",
         padding: 16,
     },
     dropdown: {
         height: 50,
+
         borderColor: 'gray',
         borderBottomWidth: 1,
         paddingHorizontal: 8,
     },
-    icon: {
-        marginRight: 5,
-    },
-    label: {
-        position: 'absolute',
-        backgroundColor: COLORS.primary,
-        left: 22,
-        top: 8,
-        zIndex: 999,
-        paddingHorizontal: 8,
-        fontSize: 14,
-    },
     placeholderStyle: {
         fontSize: 16,
+        color: COLORS.white,
     },
     selectedTextStyle: {
         fontSize: 16,
-        color: COLORS.secondary
-    },
-    iconStyle: {
-        width: 20,
-        height: 20,
+        color: COLORS.white,
+
     },
     inputSearchStyle: {
         height: 40,
         fontSize: 16,
+    },
+    dropdownContainer: {
+        backgroundColor: COLORS.primary,
+        borderRadius: 10,
+        paddingVertical: 10,
+    },
+    dropdownItem: {
+        padding: 16,
+        backgroundColor: COLORS.primary, // Default background color for items
+        borderBottomWidth: 1,
+        borderBottomColor: 'gray',
+    },
+    selectedItem: {
+        backgroundColor: COLORS.secondary, // Background color when the item is selected
+    },
+    itemText: {
+        fontSize: 16,
+        color: COLORS.white,
+    },
+    selectedItemText: {
+        color: COLORS.white, // Text color when the item is selected
     },
 } );

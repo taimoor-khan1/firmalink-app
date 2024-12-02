@@ -1,12 +1,14 @@
 import { Dimensions, Platform, StyleSheet } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
-export const { width, height } = Dimensions.get( 'window' );
+export const { width, height } = Dimensions.get('window');
 
 /* *************** Colors ********** */
 
 export const COLORS = {
   primary: '#022541',
   primaryLight: '#092C47',
+
+  ligthBlue: "#4BB5FF",
   secondary: '#82D549',
   white: '#ffff',
   black: '#020000',
@@ -48,43 +50,54 @@ export const FONTFAMILY = {
 /* * Images * */
 export const IMAGES = {
 
-  logo: require( '../assets/images/logo.png' ),
-  welcomeScreen1: require( '../assets/images/welcomeScreen1.png' ),
-  welcomeScreen2: require( '../assets/images/welcomeScreen2.png' ),
-  welcomeScreen3: require( '../assets/images/welcomeScreen3.png' ),
-  ClientIcon: require( '../assets/images/ClientIcon.png' ),
-  NotaryIcon: require( '../assets/images/NotaryIcon.png' ),
-  forwardArrow: require( '../assets/images/forwardArrow.png' ),
-  Wallet: require( '../assets/images/wallet.png' ),
-  user: require( '../assets/images/user.png' ),
-  downloadIcon: require( '../assets/images/downloadIcon.png' ),
-  camera: require( '../assets/images/camera.png' ),
-  verifiedbadge: require( '../assets/images/verifiedbadge.png' ),
-  user2: require( '../assets/images/user2.png' ),
-  user3: require( '../assets/images/user3.png' ),
-  user4: require( '../assets/images/user4.png' ),
-  callMissed: require( '../assets/images/callMissed.png' ),
-  callRecevied: require( '../assets/images/callRecevied.png' ),
-  searchIcon: require( '../assets/images/searchIcon.png' ),
-  settingIcon: require( '../assets/images/settingIcon.png' ),
-  phoneIcon: require( '../assets/images/phoneIcon.png' ),
-  mailIcon: require( '../assets/images/mailIcon.png' ),
-  pencilIcon: require( '../assets/images/pencilIcon.png' ),
-  dummyDoc: require( '../assets/images/dummyDoc.png' ),
-  crossIcon: require( '../assets/images/crossIcon.png' ),
-  reviewCardBg: require( '../assets/images/reviewCardBg.png' ),
-  transIcon: require( '../assets/images/transIcon.png' ),
-  dollarIcon: require( '../assets/images/dollarIcon.png' ),
-  calendarIcon: require( '../assets/images/calendarIcon.png' ),
-  routingIcon: require( '../assets/images/routingIcon.png' ),
-  TabUnSelectedAppointmentIcon: require( '../assets/images/TabUnSelectedAppointmentIcon.png' ),
-  TabSelectedAppointmentIcon: require( '../assets/images/TabSelectedAppointmentIcon.png' ),
-  TabUnSelectedHome: require( '../assets/images/TabUnSelectedHome.png' ),
-  TabSelectedHome: require( '../assets/images/TabSelectedHome.png' ),
-  TabUnSelectedProfile: require( '../assets/images/TabUnSelectedProfile.png' ),
-  TabSelectedProfile: require( '../assets/images/TabSelectedProfile.png' ),
-  TabUnSelectedNotification: require( '../assets/images/TabUnSelectedNotification.png' ),
-  TabSelectedNotification: require( '../assets/images/TabSelectedNotification.png' ),
+  logo: require('../assets/images/logo.png'),
+  welcomeScreen1: require('../assets/images/welcomeScreen1.png'),
+  welcomeScreen2: require('../assets/images/welcomeScreen2.png'),
+  welcomeScreen3: require('../assets/images/welcomeScreen3.png'),
+  ClientIcon: require('../assets/images/ClientIcon.png'),
+  NotaryIcon: require('../assets/images/NotaryIcon.png'),
+  forwardArrow: require('../assets/images/forwardArrow.png'),
+  Wallet: require('../assets/images/wallet.png'),
+  user: require('../assets/images/user.png'),
+  downloadIcon: require('../assets/images/downloadIcon.png'),
+  camera: require('../assets/images/camera.png'),
+  verifiedbadge: require('../assets/images/verifiedbadge.png'),
+  user2: require('../assets/images/user2.png'),
+  user3: require('../assets/images/user3.png'),
+  user4: require('../assets/images/user4.png'),
+  callMissed: require('../assets/images/callMissed.png'),
+  callRecevied: require('../assets/images/callRecevied.png'),
+  searchIcon: require('../assets/images/searchIcon.png'),
+  settingIcon: require('../assets/images/settingIcon.png'),
+  phoneIcon: require('../assets/images/phoneIcon.png'),
+  mailIcon: require('../assets/images/mailIcon.png'),
+  pencilIcon: require('../assets/images/pencilIcon.png'),
+  dummyDoc: require('../assets/images/dummyDoc.png'),
+  crossIcon: require('../assets/images/crossIcon.png'),
+  reviewCardBg: require('../assets/images/reviewCardBg.png'),
+  transIcon: require('../assets/images/transIcon.png'),
+  dollarIcon: require('../assets/images/dollarIcon.png'),
+  calendarIcon: require('../assets/images/calendarIcon.png'),
+  routingIcon: require('../assets/images/routingIcon.png'),
+  TabUnSelectedAppointmentIcon: require('../assets/images/TabUnSelectedAppointmentIcon.png'),
+  TabSelectedAppointmentIcon: require('../assets/images/TabSelectedAppointmentIcon.png'),
+  TabUnSelectedHome: require('../assets/images/TabUnSelectedHome.png'),
+  TabSelectedHome: require('../assets/images/TabSelectedHome.png'),
+  TabUnSelectedProfile: require('../assets/images/TabUnSelectedProfile.png'),
+  TabSelectedProfile: require('../assets/images/TabSelectedProfile.png'),
+  TabUnSelectedNotification: require('../assets/images/TabUnSelectedNotification.png'),
+  TabSelectedNotification: require('../assets/images/TabSelectedNotification.png'),
+  TabUnSelectedServiceIcon: require('../assets/images/TabUnSelectedServiceIcon.png'),
+  TabSelectedServiceIcon: require('../assets/images/TabSelectedServiceIcon.png'),
+  notification: require('../assets/images/notification.png'),
+  RealState: require('../assets/images/RealState.png'),
+  profileIcon: require('../assets/images/profileIcon.png'),
+  lock: require('../assets/images/lock.png'),
+  gradientCheck: require('../assets/images/gradientCheck.png'),
+  gradientCross: require('../assets/images/gradientCross.png'),
+  gradientquestionMark: require('../assets/images/gradientquestionMark.png'),
+
+
 
 
 
@@ -98,9 +111,13 @@ export const SCREENS = {
   UserSelection: "UserSelection",
   login: 'login',
   signUp: 'signUp',
+  SignUpSkill: 'SignUpSkill',
   forget: "forget",
   Otp: "Otp",
   bottamTab: "BottamTab",
+  bottamTabCLient: "bottamTabCLient",
+
+  // =================Notary==================
   NotaryHome: "NotaryHome",
   NotaryAppointment: "NotaryAppointment",
   NotaryProfile: "NotaryProfile",
@@ -109,8 +126,18 @@ export const SCREENS = {
   NotarySettings: "NotarySettings",
   PriceSettings: "PriceSettings",
   CalenderSettings: "CalenderSettings",
-  TravelSettings: "TravelSettings"
+  TravelSettings: "TravelSettings",
 
+  // =======================Client ==================
+  ClientHome: "ClientHome",
+  ClientService: "ClientService",
+  ClientAppointment: "ClientAppointment",
+  ClientProfile: "ClientProfile",
+  NotaryDetail: "NotaryDetail",
+
+
+  AppointmentDetails: "AppointmentDetails",
+  AppointmentDetailSheet: "AppointmentDetailSheet"
 };
 
 export const SIZES = {
@@ -211,14 +238,14 @@ export const FONTS = {
   lightFont18: { fontFamily: FONTFAMILY.Roboto_Regular, fontSize: SIZES.body18 },
 };
 
-export const STYLES = StyleSheet.create( {
+export const STYLES = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: SIZES.fifteen,
     paddingTop:
       Platform.OS === 'android'
         ? SIZES.twentyFive * 1.3
-        : getStatusBarHeight( true ),
+        : getStatusBarHeight(true),
     backgroundColor: COLORS.primary,
   },
   splashLogo: {
@@ -282,7 +309,7 @@ export const STYLES = StyleSheet.create( {
     shadowColor: COLORS.black,
     backgroundColor: COLORS.white,
   },
-} );
+});
 
 export const CONSTANTS = {
 

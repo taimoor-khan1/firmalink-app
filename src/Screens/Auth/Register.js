@@ -1,19 +1,21 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import { COLORS, SIZES, STYLES } from '../../constants'
+import { COLORS, SCREENS, SIZES, STYLES } from '../../constants'
 import CustomHeader from '../../components/CustomHeader'
 import EditText from '../../components/EditText'
 import CustomButton from '../../components/CustomButton'
 import GradientText from '../../components/GradientText'
 import { Icon, IconType } from '../../components'
+import CustomAuthHeader from '../../components/CustomAuthHeader'
 
-export default function Register() {
+export default function Register( props ) {
+  const { navigation } = props
   const [email, setEmail] = useState( "" )
   const [name, setName] = useState( "" )
   const [password, setPassword] = useState( "" )
   return (
     <View style={STYLES.container}>
-      <CustomHeader title={"Register "} />
+      <CustomAuthHeader title={"FirmaLink Sign Up "} />
 
       <EditText
         value={name}
@@ -39,7 +41,7 @@ export default function Register() {
       <Text style={{ fontSize: SIZES.fifteen, color: COLORS.white, textAlign: "center", marginTop: SIZES.fifty }}>
 
         Already Have an account !{" "}
-        <Text style={{ color: COLORS.secondary }}>
+        <Text onPress={() => navigation.navigate( SCREENS.login )} style={{ color: COLORS.secondary }}>
           Login
         </Text>
       </Text>

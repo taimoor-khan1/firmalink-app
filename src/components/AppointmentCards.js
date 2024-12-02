@@ -4,11 +4,14 @@ import RNPickerSelect from 'react-native-picker-select';
 import { COLORS, height, IMAGES, SIZES, width } from '../constants';
 import Icon, { IconType } from './Icons';
 import LinearGradient from 'react-native-linear-gradient';
+import CustomModal from './Modals/CustomModal';
 
 export default function AppointmentCards( props ) {
     const { title, dateShow } = props
     const colorScheme = useColorScheme();
     const [dates, setDates] = useState( [] );
+    const [isVisible, setIsvisible] = useState( false )
+
     const flatListRef = useRef( null );
     const [selectedDate, setSelectedDate] = useState( null );
 
@@ -104,7 +107,9 @@ export default function AppointmentCards( props ) {
                         <Image source={IMAGES.user} style={styles.img} />
                         <Text style={{ color: COLORS.white, fontSize: SIZES.fifteen, marginLeft: SIZES.ten }}>Martin Edward</Text>
                     </View>
-                    <TouchableOpacity style={{ borderColor: COLORS.red, borderWidth: .8, borderStyle: "solid", paddingHorizontal: SIZES.fifteen, paddingVertical: SIZES.ten, borderRadius: SIZES.ten }}>
+                    <TouchableOpacity
+                        onPress={() => setIsvisible( true )}
+                        style={{ borderColor: COLORS.red, borderWidth: .8, borderStyle: "solid", paddingHorizontal: SIZES.fifteen, paddingVertical: SIZES.ten, borderRadius: SIZES.ten }}>
                         <Text style={{ color: COLORS.red }}>
                             Cancel Appointment
                         </Text>
@@ -187,7 +192,7 @@ export default function AppointmentCards( props ) {
             </View>
             {dateShow &&
                 <FlatList
-                    ref={flatListRef} // Attach the ref to the FlatList
+                    // ref={flatListRef} // Attach the ref to the FlatList
                     data={dates}
                     horizontal
                     keyExtractor={( item ) => item.day}
@@ -203,11 +208,25 @@ export default function AppointmentCards( props ) {
             }
 
             <FlatList
+                showsVerticalScrollIndicator={false}
+
                 data={[1, 2, 3, 45, 5, 6, 7, 7]}
                 keyExtractor={item => item.id}
                 renderItem={RenderCard}
 
             />
+            <CustomModal isVisible={isVisible}>
+                <Image source={IMAGES.gradientCross} style={{ width: width * .2, height: width * .2, alignSelf: "center" }} />
+                <Text style={{ color: COLORS.white, fontSize: SIZES.fifteen, textAlign: "center", marginTop: SIZES.ten }}>Are you sure you want to cancel this appointment?</Text>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginVertical: SIZES.twenty }}>
+                    <TouchableOpacity onPress={() => setIsvisible( !isVisible )} style={[styles.btnStyle, { borderColor: COLORS.gray, backgroundColor: COLORS.primaryLight }]}>
+                        <Text style={{ color: COLORS.white, fontSize: SIZES.fifteen }}>Cancel</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => setIsvisible( !isVisible )} style={styles.btnStyle}>
+                        <Text style={{ color: COLORS.secondary, fontSize: SIZES.fifteen }}>Confirm</Text>
+                    </TouchableOpacity>
+                </View>
+            </CustomModal>
 
         </View>
     )
@@ -307,4 +326,13 @@ const styles = StyleSheet.create( {
     selectedLabelText: {
         color: "#FFF",
     },
+    btnStyle: {
+        width: "45%",
+        padding: SIZES.ten,
+        borderWidth: 1,
+        borderColor: COLORS.secondary,
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: SIZES.twentyFive
+    }
 } )

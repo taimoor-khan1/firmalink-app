@@ -9,7 +9,7 @@ import GradientView from '../../components/GradientView'
 import ReviewCards from '../../components/ReviewCards'
 
 export default function NotaryProfile() {
-    const Heading = ( { title, onPress } ) => {
+    const Heading = ({ title, onPress }) => {
         return (
             <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginVertical: SIZES.fifteen }}>
                 <Text style={styles.title}>
@@ -22,7 +22,7 @@ export default function NotaryProfile() {
             </View>
         )
     }
-    const Options = ( { item } ) => {
+    const Options = ({ item }) => {
         return (
             <GradientView
                 style={styles.option}
@@ -86,8 +86,10 @@ export default function NotaryProfile() {
             </View>
 
             <Heading title={"Ratings & Review"} />
+            <View>
 
-            <ReviewCards />
+                <ReviewCards />
+            </View>
 
 
             <Wallet />
@@ -99,7 +101,7 @@ export default function NotaryProfile() {
     )
 }
 
-const styles = StyleSheet.create( {
+const styles = StyleSheet.create({
     title: {
         color: COLORS.white,
         fontSize: SIZES.fifteen * 1.2
@@ -143,4 +145,4 @@ const styles = StyleSheet.create( {
         color: COLORS.white,
 
     }
-} )
+})

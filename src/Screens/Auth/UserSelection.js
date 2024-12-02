@@ -46,11 +46,17 @@ export default function UserSelection( props ) {
       <Text style={styles.heading}>Select User Type?</Text>
 
       <OptionCard
+        onPress={() => {
+          navigation.navigate( SCREENS.bottamTab )
+        }}
         image={IMAGES.NotaryIcon}
         title={'Notary'}
         content={"Get your self register if you want some good clients."}
       />
       <OptionCard
+        onPress={() => {
+          navigation.navigate( SCREENS.bottamTabCLient )
+        }}
         image={IMAGES.ClientIcon}
         title={'Client'}
         content={"Signup with client user type and get millions of notary option here."}

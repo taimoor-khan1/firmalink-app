@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const userTypeSlice = createSlice({
+export const userTypeSlice = createSlice( {
   name: "userType",
-  initialState: { role: "Customer", },
+  initialState: { role: "notary", },
   reducers: {
     setUserType: ( state, action ) => {
       state.role = action.payload;

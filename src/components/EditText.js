@@ -37,7 +37,7 @@ const EditText = React.forwardRef( ( props, ref ) => {
           {
 
             borderBottomWidth: 2,
-            paddingHorizontal: SIZES.fifteen,
+            paddingHorizontal: SIZES.ten,
             height: SIZES.fifty,
             borderRadius: SIZES.ten,
             borderColor: borderColor,
@@ -50,13 +50,13 @@ const EditText = React.forwardRef( ( props, ref ) => {
           <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
 
 
-            {props.value.length === 0 &&
+            {/* {props.value.length === 0 &&
               <View style={{ position: "absolute", left: SIZES.ten, top: SIZES.twenty }}>
                 <GradientText >
                   {props.placeHolderValue}
                 </GradientText>
               </View>
-            }
+            } */}
 
 
             <TextInput
@@ -64,9 +64,10 @@ const EditText = React.forwardRef( ( props, ref ) => {
               editable={props.disabled}
               ref={ref}
               {...props}
+              placeholder={props.placeHolderValue}
               secureTextEntry={props.password ? showText : false}
               // selectionColor={COLORS.black}
-              placeholderTextColor={COLORS.gray}
+              placeholderTextColor={borderColor}
               onFocus={() => {
                 setBorderColor( COLORS.secondary );
               }}
@@ -117,9 +118,6 @@ const EditText = React.forwardRef( ( props, ref ) => {
             />
           </MyTouchableOpacity>
         ) : null}
-
-
-
       </View>
     </View>
   );

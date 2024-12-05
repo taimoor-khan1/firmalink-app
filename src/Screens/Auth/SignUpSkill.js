@@ -1,19 +1,20 @@
 import { FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import CustomAuthHeader from '../../components/CustomAuthHeader'
-import { COLORS, SIZES, STYLES } from '../../constants'
+import { COLORS, SCREENS, SIZES, STYLES } from '../../constants'
 import CustomButton from '../../components/CustomButton'
 import GradientText from '../../components/GradientText'
 import { Icon, IconType } from '../../components'
 import LinearGradient from 'react-native-linear-gradient'
 
-export default function SignUpSkill() {
-    const [selectedYear, setSelectedYear] = useState(null)
-    const [selectedExperience, setSelectedExperience] = useState(null)
+export default function SignUpSkill( props ) {
+    const { navigation } = props
+    const [selectedYear, setSelectedYear] = useState( null )
+    const [selectedExperience, setSelectedExperience] = useState( null )
 
-    const RenderYear = ({ item }) => {
+    const RenderYear = ( { item } ) => {
         return (
-            <TouchableOpacity onPress={() => setSelectedYear(item)} >
+            <TouchableOpacity onPress={() => setSelectedYear( item )} >
                 {selectedYear === item ?
                     <LinearGradient
                         start={{ x: 0, y: 1 }}
@@ -49,9 +50,9 @@ export default function SignUpSkill() {
             </TouchableOpacity>
         )
     }
-    const RenderExperince = ({ item }) => {
+    const RenderExperince = ( { item } ) => {
         return (
-            <TouchableOpacity onPress={() => setSelectedExperience(item)} >
+            <TouchableOpacity onPress={() => setSelectedExperience( item )} >
                 {selectedExperience === item ?
                     <LinearGradient
                         start={{ x: 0, y: 1 }}
@@ -146,6 +147,9 @@ export default function SignUpSkill() {
                 </GradientText>
             </ScrollView>
             <CustomButton
+                onPress={() => {
+                    navigation.navigate( SCREENS.bottamTab )
+                }}
                 btnStyle={{ marginVertical: SIZES.fifteen }}
                 title={"Next"}
             />
@@ -153,7 +157,7 @@ export default function SignUpSkill() {
     )
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create( {
     heading: {
         color: COLORS.secondary,
         fontSize: SIZES.fifteen + 2
@@ -185,4 +189,4 @@ const styles = StyleSheet.create({
     },
 
 
-})
+} )

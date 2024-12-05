@@ -55,7 +55,7 @@ export default function Login( props ) {
         Don’t have an account? {" "}
 
         <Text
-          onPress={() => navigation.navigate( SCREENS.signUp )}
+          onPress={() => navigation.navigate( SCREENS.ClientRegister )}
           style={{ color: COLORS.secondary }}>
           Sign Up
         </Text>

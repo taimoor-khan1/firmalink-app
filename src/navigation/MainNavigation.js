@@ -9,7 +9,7 @@ import Loader from '../components/Loader';
 import welcome from '../Screens/Auth/welcome';
 import Login from '../Screens/Auth/Login';
 import UserSelection from '../Screens/Auth/UserSelection';
-import Register from '../Screens/Auth/Register';
+
 import ForgetPassword from '../Screens/Auth/ForgetPassword';
 import BottomTabNavigation from './BottomBar/BottomTabNavigation';
 
@@ -28,6 +28,7 @@ import AppointmentDetailSheet from '../Screens/AppointmentDetailSheet';
 import SignUpSkill from '../Screens/Auth/SignUpSkill';
 import TravelSettings from '../Screens/Notary/TravelSettings';
 import CalenderSettings from '../Screens/Notary/CalenderSettings';
+import ClientRegister from '../Screens/Auth/ClientRegister';
 
 
 const Stack = createNativeStackNavigator();
@@ -56,7 +57,7 @@ export default function ( props ) {
           <Stack.Screen name={SCREENS.welcomeScreen} component={welcome} />
           <Stack.Screen name={SCREENS.UserSelection} component={UserSelection} />
           <Stack.Screen name={SCREENS.login} component={Login} />
-          <Stack.Screen name={SCREENS.signUp} component={Register} />
+          <Stack.Screen name={SCREENS.ClientRegister} component={ClientRegister} />
           <Stack.Screen name={SCREENS.SignUpSkill} component={SignUpSkill} />
           <Stack.Screen name={SCREENS.forget} component={ForgetPassword} />
           <Stack.Screen name={SCREENS.bottamTab} component={BottomTabNavigation} />
